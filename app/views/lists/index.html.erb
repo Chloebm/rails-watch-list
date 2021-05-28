@@ -3,6 +3,7 @@
 <div>
   <% @lists.each do |list| %>
   <li><%= list.name%></li>
+  <%= link_to 'Show', list_path(list) %>
   <% end %>
 
 </div>

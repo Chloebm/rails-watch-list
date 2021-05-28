@@ -1,10 +1,20 @@
 
 <p id="notice"><%= notice %></p>
+<div>
+  <p>
+    <strong>Name:</strong>
+    <%= @list.name %>
+  </p>
+</div>
+<div>
+  <% @list.movies.each do |movie| %>
+  <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+  <strong><%= movie.title %> </strong>
+  <% end %>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @list.name %>
-</p>
 
-<%= link_to 'Add as bookmark', lists_path %>
+<%= link_to 'Add a movie', new_list_bookmark_path(@list) %>
+<%= link_to 'Go back', lists_path %>
+
 
